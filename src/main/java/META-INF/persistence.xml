@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="hibernate" transaction-type="RESOURCE_LOCAL">
+	
+	    <!-- 添加持久类 -->
+		<class>com.vilin.jpa.entity.Person</class>
+	    <class>com.vilin.jpa.entity.Student</class>
+	
+		<properties>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpa_hibernate?serverTimezone=GMT%2B8"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.password" value="Lw@1985105"/>
+		    <!-- 配置hibernate的基本属性 -->
+		    <property name="hibernate.ejb.naming_strategy" value="org.hibernate.cfg.ImprovedNamingStrategy"/>
+		    <!-- 格式化Hibernate sql -->
+		    <property name="hibernate.format_sql" value="true"/>
+		    <!-- 显示Hibernate sql -->
+		    <property name="hibernate.show_sql" value="true"/>
+		    <!-- 数据表的生产策略 -->
+		    <property name="hibernate.hbm2ddl.auto" value="update"/>
+		</properties>
+	</persistence-unit>
+</persistence>
