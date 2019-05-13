@@ -7,10 +7,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class PersonTest {
     
+	@Ignore
 	@Test
 	public void test() {
 		//1.获取EntityManagerFactory对象

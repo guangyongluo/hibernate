@@ -20,7 +20,7 @@ public class Person {
     private Date date;
     private Date birth;
     private String sex;
-    @TableGenerator(name="PRESON_ID_GENERATOR", table = "jpa_tables_id", pkColumnName = "jpa_id_name", pkColumnValue = "JPA_NAME", valueColumnName = "jpa_id_value", allocationSize = 1)
+    @TableGenerator(name="PRESON_ID_GENERATOR", table = "jpa_tables_id", pkColumnName = "jpa_id_name", pkColumnValue = "JPA_PERSON_ID", valueColumnName = "jpa_id_value", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "PRESON_ID_GENERATOR")
     @Id
 	public Integer getId() {

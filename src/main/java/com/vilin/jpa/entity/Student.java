@@ -49,5 +49,9 @@ public class Student {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + ", birthday=" + birthday + ", mail=" + mail + "]";
+	}
     
 }
