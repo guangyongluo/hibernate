@@ -2,6 +2,7 @@ package com.vilin.jpa.entity;
 
 import java.util.Date;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +13,7 @@ import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+@Cacheable(true)
 @Table(name="JPA_PERSON")
 @Entity
 public class Person {

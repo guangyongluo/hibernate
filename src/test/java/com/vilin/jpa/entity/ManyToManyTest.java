@@ -67,11 +67,31 @@ public class ManyToManyTest {
 		System.out.println("find item >> " + item.getCategories().iterator().next().getName());
 	}
 	
+	@Ignore
 	@Test
 	public void findCategory() {
 		Category category = createEntityManager.find(Category.class, 1);
 		System.out.println("find category >> " + category.getName());
 		System.out.println("find category >> " + category.getItems().iterator().next().getName());
+	}
+	
+	/*
+	 * 使用二级缓存
+	 */
+	@Test
+	public void getSession() {
+		Person person1 = createEntityManager.find(Person.class, 1);
+		
+		transaction.commit();
+		createEntityManager.close();
+		createEntityManager = createEntityManagerFactory.createEntityManager();
+		transaction = createEntityManager.getTransaction();
+		transaction.begin();
+		
+		Person person2 = createEntityManager.find(Person.class, 1);
+		
+		System.out.println("find person1 >> " + person1.getName());
+		System.out.println("find person2 >> " + person2.getName());
 	}
 	
 	@After
