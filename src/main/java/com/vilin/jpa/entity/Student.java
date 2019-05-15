@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
@@ -19,6 +21,7 @@ public class Student {
     private String name;
     private Date birthday;
     private String mail;
+    private Teacher teacher;
     @TableGenerator(name="STUDENT_ID_GENERATOR", table = "jpa_tables_id", pkColumnName = "jpa_id_name", pkColumnValue = "JPA_STUDENT_ID", valueColumnName = "jpa_id_value", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "STUDENT_ID_GENERATOR")
     @Id
@@ -49,9 +52,17 @@ public class Student {
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
+	@JoinColumn(name="teacher_id")
+	@ManyToOne
+	public Teacher getTeacher() {
+		return teacher;
+	}
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", birthday=" + birthday + ", mail=" + mail + "]";
+		return "Student [id=" + id + ", name=" + name + ", birthday=" + birthday + ", mail=" + mail + ", teacher="
+				+ teacher + "]";
 	}
-    
 }
