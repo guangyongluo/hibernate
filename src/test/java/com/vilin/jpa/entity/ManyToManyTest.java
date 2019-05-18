@@ -78,6 +78,7 @@ public class ManyToManyTest {
 	/*
 	 * 使用二级缓存
 	 */
+	@Ignore
 	@Test
 	public void getSession() {
 		Person person1 = createEntityManager.find(Person.class, 1);

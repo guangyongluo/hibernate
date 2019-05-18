@@ -8,11 +8,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+@NamedQuery(name="nameQuery", query="SELECT P FROM Person P WHERE P.id=?1")
 @Cacheable(true)
 @Table(name="JPA_PERSON")
 @Entity
@@ -22,7 +24,13 @@ public class Person {
     private Date date;
     private Date birth;
     private String sex;
-    @TableGenerator(name="PRESON_ID_GENERATOR", table = "jpa_tables_id", pkColumnName = "jpa_id_name", pkColumnValue = "JPA_PERSON_ID", valueColumnName = "jpa_id_value", allocationSize = 1)
+    public Person() {}
+    public Person(Integer id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+	@TableGenerator(name="PRESON_ID_GENERATOR", table = "jpa_tables_id", pkColumnName = "jpa_id_name", pkColumnValue = "JPA_PERSON_ID", valueColumnName = "jpa_id_value", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "PRESON_ID_GENERATOR")
     @Id
 	public Integer getId() {
@@ -58,4 +66,8 @@ public class Person {
     public void setSex(String sex) {
     	this.sex = sex;
     }
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", name=" + name + ", date=" + date + ", birth=" + birth + ", sex=" + sex + "]";
+	}
 }

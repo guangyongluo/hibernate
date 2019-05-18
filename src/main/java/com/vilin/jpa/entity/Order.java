@@ -18,6 +18,12 @@ public class Order {
 	private Integer id;
 	private String name;
 	private Student student;
+	public Order() {}
+	public Order(Integer id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
 	@TableGenerator(name="ORDER_ID_GENERATOR", table = "jpa_tables_id", pkColumnName = "jpa_id_name", pkColumnValue = "JPA_ORDER_ID", valueColumnName = "jpa_id_value", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.TABLE, generator = "ORDER_ID_GENERATOR")
 	@Id
@@ -34,7 +40,7 @@ public class Order {
 		this.name = name;
 	}
 	@JoinColumn(name="student_id")
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	public Student getStudent() {
 		return student;
 	}

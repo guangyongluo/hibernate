@@ -59,6 +59,7 @@ public class ManagerTest {
 	 * 在默认情况下如果获取维护关联关系的一方使用左外链接可以通过设置fetch=FetchType.LAZY加载策略
 	 * 会发送两条SQL语句，不建议使用，还不如默认的一条左外链接语句
 	 */
+	@Ignore
 	@Test
 	public void getManager() {
 		Manager manager = createEntityManager.find(Manager.class, 1);

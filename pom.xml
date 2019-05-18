@@ -60,7 +60,7 @@
   </dependencies>
   
   <build>
-    <finalName>cms</finalName>
+    <finalName>hibernate-jpa</finalName>
 	<pluginManagement>
 	  <plugins>
 		<plugin>
