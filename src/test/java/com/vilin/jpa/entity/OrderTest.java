@@ -178,6 +178,7 @@ public class OrderTest {
 	    
 	}
 	
+	@Ignore
 	@Test
 	public void testDeleteJPQL() {
 		String jpql = "DELETE Order O WHERE O.id=?0";
