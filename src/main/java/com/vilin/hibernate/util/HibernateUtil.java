@@ -32,6 +32,7 @@ public class HibernateUtil {
 			session.close();
 			local.remove();
 			sessionFactory.close();
+			serviceRegistry.close();
 		}
 	
 	}

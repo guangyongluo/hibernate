@@ -4,7 +4,7 @@
 <!-- Generated 2019-5-20 20:43:02 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <!-- 配置映射关系，将类与表进行映射 -->
-    <class name="com.vilin.hibernate.domain.User" table="USER">
+    <class name="com.vilin.hibernate.domain.User" table="USER" dynamic-insert="true" dynamic-update="true">
         <!-- 配置映射关系，将类与表进行映射 -->
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
@@ -16,7 +16,7 @@
         <property name="password" type="java.lang.String">
             <column name="PASSWORD" />
         </property>
-        <property name="age" type="java.util.Date">
+        <property name="age" type="java.lang.Integer">
             <column name="AGE" />
         </property>
     </class>
