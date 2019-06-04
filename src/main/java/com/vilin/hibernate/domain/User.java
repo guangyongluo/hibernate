@@ -14,6 +14,9 @@ public class User implements Serializable{
 	
 	private Integer age;
 
+	//对应user表中的记录数，但数据库中没有对应的列，由SQL动态生成的。
+	private Long count;
+	
 	public User() {}
 	
 	public User(Integer id, String username, String password, Integer age) {
@@ -65,10 +68,19 @@ public class User implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
+	public Long getCount() {
+		return count;
+	}
+
+	public void setCount(Long count) {
+		this.count = count;
+	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", age=" + age + "]";
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", age=" + age + ", count="
+				+ count + "]";
 	}
 	
 }

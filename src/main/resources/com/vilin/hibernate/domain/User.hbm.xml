@@ -19,6 +19,9 @@
         <property name="age" type="java.lang.Integer">
             <column name="AGE" />
         </property>
+        
+        <!-- 该属性不对应表中的某列，对应的是sql查询结果 -->
+        <property name="count" formula="(select count(*) from user)"></property>
     </class>
     <!-- HQL语句的命名查询 -->
     <query name="login">
@@ -32,6 +35,6 @@
 		<![CDATA[
 			select * from user where username=:name and password=:pwd
 		]]>
-		<return class="com.vilin.hibernate.domain.User"></return>
+		<!-- <return class="com.vilin.hibernate.domain.User"></return> -->
 	</sql-query>
 </hibernate-mapping>
