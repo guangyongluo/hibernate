@@ -20,4 +20,18 @@
             <column name="AGE" />
         </property>
     </class>
+    <!-- HQL语句的命名查询 -->
+    <query name="login">
+        <![CDATA[
+        from User where username=:username and password=:password
+        ]]>
+    </query>
+    
+    <!-- SQL语句的命名查询 -->
+	<sql-query name="login2">
+		<![CDATA[
+			select * from user where username=:name and password=:pwd
+		]]>
+		<return class="com.vilin.hibernate.domain.User"></return>
+	</sql-query>
 </hibernate-mapping>
