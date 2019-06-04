@@ -9,13 +9,13 @@ import com.vilin.hibernate.util.HibernateUtil;
 public class SessionAPI {
 
 	public static void main(String[] agrs) {
-		saveOrUpdate();
+		insert();
 	}
 	
 	public static void insert() {
 		Session session = HibernateUtil.getSession();
 		Transaction tx = session.beginTransaction();
-		User user = new User(null, "张无忌", "123456", 18);
+		User user = new User(null, "莫声谷", "123456", 28);
 		session.save(user);
 		tx.commit();
 		HibernateUtil.close();

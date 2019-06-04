@@ -24,6 +24,12 @@ public class User implements Serializable{
 		this.age = age;
 	}
 
+	public User(String username, Integer age) {
+		super();
+		this.username = username;
+		this.age = age;
+	}
+
 	public Integer getId() {
 		return id;
 	}
