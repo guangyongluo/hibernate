@@ -99,3 +99,14 @@ create table person(
     foreign key(card_id) references card(id)
 )engine=Innodb default charset=utf8;
 
+drop table if exists consumer;
+
+create table consumer(
+    id int primary key auto_increment,
+    age int,
+    first_name varchar(50),
+    last_name varchar(50)
+)engine=Innodb default charset=utf8;
+
+insert into consumer values(null, 21, 'tom', 'cruise');
+insert into consumer values(null, 21, 'james', 'bond');
