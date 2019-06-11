@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-6-11 16:20:24 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="com.vilin.hibernate.domain">
+    <class name="Card" table="CARD">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <!-- property-ref：引用的关联类的属性 -->
+        <one-to-one name="person" class="Person" property-ref="card"></one-to-one>
+    </class>
+</hibernate-mapping>

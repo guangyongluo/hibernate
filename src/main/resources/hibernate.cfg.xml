@@ -24,5 +24,9 @@
         <mapping resource="com/vilin/hibernate/domain/Dept.hbm.xml"/>
         <mapping resource="com/vilin/hibernate/domain/Clazz.hbm.xml"/>
         <mapping resource="com/vilin/hibernate/domain/Student.hbm.xml"/>
+        <mapping resource="com/vilin/hibernate/domain/Stu.hbm.xml"/>
+        <mapping resource="com/vilin/hibernate/domain/Course.hbm.xml"/>
+        <mapping resource="com/vilin/hibernate/domain/Person.hbm.xml"/>
+        <mapping resource="com/vilin/hibernate/domain/Card.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

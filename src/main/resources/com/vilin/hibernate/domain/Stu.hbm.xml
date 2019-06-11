@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-6-11 10:20:16 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="com.vilin.hibernate.domain">
+    <class name="Stu" table="STU">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <!-- 配置多对多 -->
+        <set name="courses" table="STU_COURSE" lazy="false" fetch="join">
+            <!-- 关联到当前类Stu的外键列 -->
+            <key>
+                <column name="STU_ID" />
+            </key>
+            <!-- class指定属性的类型，column指定关联的列，外键列-->
+            <many-to-many class="Course" column="course_id"/>
+        </set>
+    </class>
+</hibernate-mapping>
