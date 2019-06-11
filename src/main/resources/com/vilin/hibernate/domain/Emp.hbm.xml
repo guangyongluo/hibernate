@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-6-4 22:17:25 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="com.vilin.hibernate.domain">
+    <class name="Emp" table="EMP">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <!-- 在property元素中还可以指定列的其他信息 length,type,not-null,unique -->
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <!-- 配置多对一的关系 name:属性列 column:列名,外界列-->
+        <!-- lazy:关联数据加载策略,可取值如下
+                 false:立即加载关联数据，使用两次查询；
+                 proxy:懒加载，以代理对象的形式进行延迟加载，默认值；
+                 no-proxy:懒加载，该方式在编译时需要对字节码增强，否则和proxy没区别，很少使用。
+             fetch:抓取数据，可取值如下：
+                 join:立即加载，使用的是：一次查询！！注：此时会lazy配置无效，总是会立即加载关联数据，使用联接查询
+                 select:懒加载，会执行一次select查询，默认值
+             cascade:级联操作
+                 none:不进行级联操作，默认值
+                 all:对所有操作都做级联操作(insert\update\delete)
+                 save-update:进行保存和更新时进行级联操作
+                 delete:执行删除时进行级联操作
+                 
+         -->
+        <many-to-one name="dept" class="Dept" cascade="all">
+            <column name="DEPT_ID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

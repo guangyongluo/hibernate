@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-6-8 12:02:03 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="com.vilin.hibernate.domain">
+    <class name="Clazz" table="CLASS">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <!-- 配置一对多属性 
+                name : 属性名
+                table : 属性关联的表
+                
+                cascade : 级联操作
+                    none
+                    all
+                    save-update
+                    delete : 级联删除，删除的过程
+                         1.将所有引用一方数据的外键全部设置为null;(将clazz对象对应的所有student的class_id都设置为null)
+                         2.删除对应set集合中的数据(将clazz中的set集合中的student删除)
+                         3.删除自己对应的数据(将clazz对象删除)
+                         
+                 inverse:表示反转
+                     false:表示一方维护关联关系，默认值
+                     true:由对方来维护关联关系，即由多方维护，一方放弃对set集合的维护
+        -->
+        <set name="students" table="student" inverse="true">
+            <!-- 关联列，外键列，即student表中的关联class表的字段 -->
+            <key column="class_id"></key>
+            <!-- 关联类的属性类型 -->
+            <one-to-many class="Student"/>
+        </set>
+    </class>
+</hibernate-mapping>

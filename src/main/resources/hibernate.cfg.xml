@@ -20,5 +20,9 @@
         
         <!-- 指定映射文件的路劲 -->
         <mapping resource="com/vilin/hibernate/domain/User.hbm.xml"/>
+        <mapping resource="com/vilin/hibernate/domain/Emp.hbm.xml"/>
+        <mapping resource="com/vilin/hibernate/domain/Dept.hbm.xml"/>
+        <mapping resource="com/vilin/hibernate/domain/Clazz.hbm.xml"/>
+        <mapping resource="com/vilin/hibernate/domain/Student.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
