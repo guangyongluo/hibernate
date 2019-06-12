@@ -110,3 +110,64 @@ create table consumer(
 
 insert into consumer values(null, 21, 'tom', 'cruise');
 insert into consumer values(null, 21, 'james', 'bond');
+
+
+drop table if exists sysUser;
+
+create table sysUser(
+    id int primary key auto_increment,
+    username varchar(50),
+    password varchar(50),
+    tel varchar(20),
+    address varchar(100),
+    type int
+)engine=Innodb default charset=utf8;
+
+insert into sysUser values(null, 'admin', '123456', '17706133681', '', 0);
+insert into sysUser values(null, 'tom', '123456', '', '苏州', 1);
+
+drop table if exists manager;
+drop table if exists member;
+
+create table manager(
+    id int primary key auto_increment,
+    username varchar(50),
+    password varchar(50),
+    tel varchar(20)
+)engine=Innodb default charset=utf8;
+create table member(
+    id int primary key auto_increment,
+    username varchar(50),
+    password varchar(50),
+    address varchar(100)
+)engine=Innodb default charset=utf8;
+
+insert into manager values(null, 'admin', '123456', '17706133681');
+insert into member values(null, '罗葳', '123456', 'SuZhou');
+
+drop table if exists sysUser;
+drop table if exists manager;
+drop table if exists member;
+
+create table sysUser(
+    id int primary key auto_increment,
+    username varchar(50),
+    password varchar(50)
+)engine=Innodb default charset=utf8;
+create table manager(
+    id int primary key auto_increment,
+    tel varchar(20),
+    user_id int,
+    foreign key(user_id) references sysUser(id)
+)engine=Innodb default charset=utf8;
+create table member(
+    id int primary key auto_increment,
+    address varchar(100),
+    user_id int,
+    foreign key(user_id) references sysUser(id)
+)engine=Innodb default charset=utf8;
+
+insert into sysUser values (1, 'admin', '123456');
+insert into sysUser values (2, 'tom', '123456');
+insert into manager values (1, '17706133681', 1);
+insert into member values (1, '苏州', 2);

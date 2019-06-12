@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-6-11 21:07:59 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping package="com.vilin.hibernate.domain">
+    <class name="SYSUser" table="SYSUSER">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        
+        <!-- 指定如何区分子类  column指定使用哪个字段来进行区分-->
+        <discriminator column="type"></discriminator>
+        
+        <property name="username" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        
+        <!-- 每个子类的配置 -->
+        <!-- <subclass name="Manager" discriminator-value="0">
+            <property name="tel"></property>
+        </subclass>
+        <subclass name="Member" discriminator-value="1">
+            <property name="address"></property>
+        </subclass> -->
+        
+        <!-- 通过外键关联的子类 -->
+        <joined-subclass name="Manager" table="MANAGER">
+            <key column="user_id"></key>
+            <property name="tel"></property>
+        </joined-subclass>
+        
+        <joined-subclass name="Member" table="MEMBER">
+            <key column="user_id"></key>
+            <property name="address"></property>
+        </joined-subclass>
+    </class>
+</hibernate-mapping>
