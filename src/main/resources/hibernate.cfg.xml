@@ -18,6 +18,18 @@
         <!-- 格式化sql语句，更易读 -->
         <property name="format_sql">true</property>
         
+        <!-- 
+                        根据映射关系自动生成数据库表结构，常用取值：
+            create:每次创建SessionFactory时都执行建表语句
+            update:当映射关系与数据库表结构不一致时更新表
+         -->
+        <property name="hbm2ddl.auto">update</property>
+        <!-- 启用二级缓存 -->
+        <property name="cache.use_second_level_cache">true</property>
+        <!-- 设置二级缓存的实现类，即指定使用的插件 -->
+        <property name="cache.region.factory_class">org.hibernate.cache.ehcache.internal.EhcacheRegionFactory</property>
+        
+        <property name="cache.use_query_cache">true</property>
         <!-- 指定映射文件的路劲 -->
         <!--  
         <mapping resource="com/vilin/hibernate/domain/User.hbm.xml"/>
@@ -32,8 +44,10 @@
         <mapping resource="com/vilin/hibernate/domain/Customer.hbm.xml"/>
         -->
         <mapping resource="com/vilin/hibernate/domain/SYSUser.hbm.xml"/>
-        
+        <mapping resource="com/vilin/hibernate/domain/Account.hbm.xml"/>
         <!-- <mapping resource="com/vilin/hibernate/domain/Manager.hbm.xml"/>
         <mapping resource="com/vilin/hibernate/domain/Member.hbm.xml"/> -->
+        
+        <class-cache usage="read-write" class="com.vilin.hibernate.domain.Account"/>
     </session-factory>
 </hibernate-configuration>

@@ -31,8 +31,8 @@ public class HibernateUtil {
 		if(session != null) {
 			session.close();
 			local.remove();
-			sessionFactory.close();
-			serviceRegistry.close();
+//			sessionFactory.close();
+//			serviceRegistry.close();
 		}
 	
 	}

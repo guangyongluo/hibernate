@@ -171,3 +171,14 @@ insert into sysUser values (1, 'admin', '123456');
 insert into sysUser values (2, 'tom', '123456');
 insert into manager values (1, '17706133681', 1);
 insert into member values (1, '苏州', 2);
+
+drop table if exists account;
+
+create table account(
+    id int primary key auto_increment,
+    username varchar(50),
+    password varchar(50)
+)engine=Innodb default charset=utf8;
+
+insert into account values (null, 'admin', '123');
+insert into account values (null, 'tom', '456');
