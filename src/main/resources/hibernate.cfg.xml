@@ -22,7 +22,7 @@
                         根据映射关系自动生成数据库表结构，常用取值：
             create:每次创建SessionFactory时都执行建表语句
             update:当映射关系与数据库表结构不一致时更新表
-         -->
+        -->
         <property name="hbm2ddl.auto">update</property>
         <!-- 启用二级缓存 -->
         <property name="cache.use_second_level_cache">true</property>
@@ -42,12 +42,20 @@
         <mapping resource="com/vilin/hibernate/domain/Person.hbm.xml"/>
         <mapping resource="com/vilin/hibernate/domain/Card.hbm.xml"/>
         <mapping resource="com/vilin/hibernate/domain/Customer.hbm.xml"/>
-        -->
+        
         <mapping resource="com/vilin/hibernate/domain/SYSUser.hbm.xml"/>
         <mapping resource="com/vilin/hibernate/domain/Account.hbm.xml"/>
-        <!-- <mapping resource="com/vilin/hibernate/domain/Manager.hbm.xml"/>
-        <mapping resource="com/vilin/hibernate/domain/Member.hbm.xml"/> -->
+        -->
+        <!-- 
+        <mapping resource="com/vilin/hibernate/domain/Manager.hbm.xml"/>
+        <mapping resource="com/vilin/hibernate/domain/Member.hbm.xml"/>
         
         <class-cache usage="read-write" class="com.vilin.hibernate.domain.Account"/>
+        <mapping class="com.vilin.hibernate.domain.annotation.Dept"/>
+        <mapping class="com.vilin.hibernate.domain.annotation.Emp"/>
+        -->
+        <mapping resource="com/vilin/hibernate/domain/User.hbm.xml"/>
+         
+        
     </session-factory>
 </hibernate-configuration>

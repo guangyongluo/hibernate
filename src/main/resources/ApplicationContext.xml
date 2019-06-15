@@ -47,4 +47,10 @@
     </bean>
     
     <tx:annotation-driven transaction-manager="transactionManager"/>
+    
+    <bean name="userDao" class="com.vilin.hibernate.dao.impl.UserDaoImpl"></bean>
+    
+    <bean name="userService" class="com.vilin.hibernate.service.impl.UserServiceImpl">
+        <property name="userDao" ref="userDao"></property>
+    </bean>
 </beans>
