@@ -12,7 +12,7 @@
 	<servlet.version>3.1.0</servlet.version>
 	<jsp.version>2.3.1</jsp.version>
 	<hibernate.version>5.4.2.Final</hibernate.version>
-	<spring.version>5.1.6.RELEASE</spring.version>
+	<spring.version>5.2.22.RELEASE</spring.version>
 	<hibernate.jpa.version>1.0.2.Final</hibernate.jpa.version>
 	<mysql.jdbc.version>8.0.13</mysql.jdbc.version>
 	<junit.version>4.12</junit.version>
